@@ -8,7 +8,7 @@ import { PlantLifecycleStage } from "./../Types.sol";
 interface IPlantSystem {
   function plantSeed(uint8 plot) external;
 
-  function water(uint16 chainId, address contract_, uint256 tokenId) external;
+  function water() external;
 
   function compost() external;
 

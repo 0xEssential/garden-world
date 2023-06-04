@@ -1503,23 +1503,7 @@ const _abi = [
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint16",
-        name: "chainId",
-        type: "uint16",
-      },
-      {
-        internalType: "address",
-        name: "contract_",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "tokenId",
-        type: "uint256",
-      },
-    ],
+    inputs: [],
     name: "water",
     outputs: [],
     stateMutability: "nonpayable",

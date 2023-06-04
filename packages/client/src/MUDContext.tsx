@@ -74,7 +74,7 @@ const MUDProvider = ({
 
   useEffect(() => {
     if (!components || !network || initialized) return;
-    setSystemCalls(createSystemCalls(network, components));
+    setSystemCalls(createSystemCalls(network));
     setInitialized(true);
   }, [components, network, initialized]);
 

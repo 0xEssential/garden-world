@@ -78,7 +78,7 @@ export interface IWorldInterface extends utils.Interface {
     "setRecord(bytes32,bytes32[],bytes)": FunctionFragment;
     "updateInField(bytes32,bytes32[],uint8,uint256,bytes)": FunctionFragment;
     "updateInField(bytes16,bytes16,bytes32[],uint8,uint256,bytes)": FunctionFragment;
-    "water(uint16,address,uint256)": FunctionFragment;
+    "water()": FunctionFragment;
     "waterable(uint16,address,uint256)": FunctionFragment;
   };
 
@@ -482,14 +482,7 @@ export interface IWorldInterface extends utils.Interface {
       PromiseOrValue<BytesLike>
     ]
   ): string;
-  encodeFunctionData(
-    functionFragment: "water",
-    values: [
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>
-    ]
-  ): string;
+  encodeFunctionData(functionFragment: "water", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "waterable",
     values: [
@@ -1109,9 +1102,6 @@ export interface IWorld extends BaseContract {
     ): Promise<ContractTransaction>;
 
     water(
-      chainId: PromiseOrValue<BigNumberish>,
-      contract_: PromiseOrValue<string>,
-      tokenId: PromiseOrValue<BigNumberish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
@@ -1462,9 +1452,6 @@ export interface IWorld extends BaseContract {
   ): Promise<ContractTransaction>;
 
   water(
-    chainId: PromiseOrValue<BigNumberish>,
-    contract_: PromiseOrValue<string>,
-    tokenId: PromiseOrValue<BigNumberish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
@@ -1812,12 +1799,7 @@ export interface IWorld extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
-    water(
-      chainId: PromiseOrValue<BigNumberish>,
-      contract_: PromiseOrValue<string>,
-      tokenId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    water(overrides?: CallOverrides): Promise<void>;
 
     waterable(
       chainId: PromiseOrValue<BigNumberish>,
@@ -2213,9 +2195,6 @@ export interface IWorld extends BaseContract {
     ): Promise<BigNumber>;
 
     water(
-      chainId: PromiseOrValue<BigNumberish>,
-      contract_: PromiseOrValue<string>,
-      tokenId: PromiseOrValue<BigNumberish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
@@ -2567,9 +2546,6 @@ export interface IWorld extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     water(
-      chainId: PromiseOrValue<BigNumberish>,
-      contract_: PromiseOrValue<string>,
-      tokenId: PromiseOrValue<BigNumberish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 

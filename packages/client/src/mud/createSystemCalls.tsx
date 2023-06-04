@@ -1,6 +1,4 @@
-import { getComponentValue } from "@latticexyz/recs";
 import { awaitStreamValue } from "@latticexyz/utils";
-import { ClientComponents } from "./createClientComponents";
 import { SetupNetworkResult } from "./setupNetwork";
 import { toast } from "react-toastify";
 import { BigNumber } from "ethers";
@@ -10,7 +8,6 @@ export type SystemCalls = ReturnType<typeof createSystemCalls>;
 export function createSystemCalls({
   worldSend,
   txReduced$,
-  singletonEntity,
 }: SetupNetworkResult) {
   const deploySpecies = async (
     ipfsHash: string,
