@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "vite build",
+    "build": "pnpm install && vite build",
     "dev": "wait-port localhost:8545 && vite",
     "start": "vite",
     "initialize": "pnpm build",
