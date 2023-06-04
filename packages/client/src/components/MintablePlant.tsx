@@ -1,8 +1,8 @@
-import { erc721ABI, useContractRead, useContractReads } from "wagmi";
+import { useContractRead } from "wagmi";
 import { useMUD } from "../MUDContext";
 import { useIPFSMetadata } from "../hooks/useIPFSMetadata";
-import abi from "../../../../packages/contracts/out/PlantSpeciesERC721.sol/PlantSpeciesERC721.abi.json";
-import { formatEther, parseEther } from "ethers/lib/utils.js";
+import abi from "../abis/PlantSpeciesERC721.json";
+import { formatEther } from "ethers/lib/utils.js";
 import { BigNumber } from "ethers";
 import { useState } from "react";
 
@@ -65,7 +65,11 @@ export const MintablePlant = ({ project }: { project: any }) => {
             event.preventDefault();
             console.log(
               "MINTED!",
-              await mintSpecies(project.contractAddress, mintPrice, count)
+              await mintSpecies(
+                project.contractAddress,
+                mintPrice as BigNumber,
+                count
+              )
             );
           }}
         >
