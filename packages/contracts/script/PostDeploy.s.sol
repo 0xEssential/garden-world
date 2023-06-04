@@ -109,29 +109,29 @@ contract PostDeploy is Script {
 
         // // IWorld(worldAddress).plantSeed(1, address(0x941ee2e831d278DB802A541d3855A8de749ef635), 14);
 
-        IWorld(worldAddress).deploySpecies(
-            "bafkreieb4zvu44cn4ti2knhkmcrzuwlk2abptfoanrldyxcgz6gah4axsa", "WTRMLN", "Watermelon", 0, 302400, 3
-        );
+        // IWorld(worldAddress).deploySpecies(
+        //     "bafkreieb4zvu44cn4ti2knhkmcrzuwlk2abptfoanrldyxcgz6gah4axsa", "WTRMLN", "Watermelon", 0, 302400, 3
+        // );
 
-        IWorld(worldAddress).deploySpecies(
-            "bafkreifmjdsxn3evhj3oyys6m7lrwn7jfmiw4uhkmyzzrj2q6f3nco225q",
-            "SHROOM",
-            "Nouns Mushroom",
-            0.01 ether,
-            44000,
-            2
-        );
+        // IWorld(worldAddress).deploySpecies(
+        //     "bafkreifmjdsxn3evhj3oyys6m7lrwn7jfmiw4uhkmyzzrj2q6f3nco225q",
+        //     "SHROOM",
+        //     "Nouns Mushroom",
+        //     0.01 ether,
+        //     44000,
+        //     2
+        // );
 
-        IWorld(worldAddress).deploySpecies(
-            "bafkreigv3erxju475r3zjso6cdt6xz3fviirkznqbwrqh574ba3obwedlq", "Blitmap Rose", "ROSE", 0.01 ether, 44000, 2
-        );
+        // IWorld(worldAddress).deploySpecies(
+        //     "bafkreigv3erxju475r3zjso6cdt6xz3fviirkznqbwrqh574ba3obwedlq", "Blitmap Rose", "ROSE", 0.01 ether, 44000, 2
+        // );
 
-        IWorld(worldAddress).deploySpecies(
-            "bafkreie3c63h3eiqzepr7ftl4vapzussspjr6fs5huym6qqaa2cx75q4fy", "CrypToadz", "TOADZ", 0.01 ether, 44000, 2
-        );
+        // IWorld(worldAddress).deploySpecies(
+        //     "bafkreie3c63h3eiqzepr7ftl4vapzussspjr6fs5huym6qqaa2cx75q4fy", "CrypToadz", "TOADZ", 0.01 ether, 44000, 2
+        // );
 
-        // // toadz
-        // // bafkreie3c63h3eiqzepr7ftl4vapzussspjr6fs5huym6qqaa2cx75q4fy
+        // // // toadz
+        // // // bafkreie3c63h3eiqzepr7ftl4vapzussspjr6fs5huym6qqaa2cx75q4fy
         vm.stopBroadcast();
     }
 }

@@ -78,7 +78,7 @@ contract PlantSystem is System {
         );
     }
 
-    function water(uint16 chainId, address contract_, uint256 tokenId) public {
+    function water(uint32 chainId, address contract_, uint256 tokenId) public {
         PlantsData memory p = Plants.get(chainId, contract_, tokenId);
         if (_dead(p)) {
             return compost();
