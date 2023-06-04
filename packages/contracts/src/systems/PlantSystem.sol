@@ -78,8 +78,9 @@ contract PlantSystem is System {
         );
     }
 
-    function water(uint32 chainId, address contract_, uint256 tokenId) public {
-        PlantsData memory p = Plants.get(chainId, contract_, tokenId);
+    function water() public {
+        IForwardRequest.NFT memory nft = _msgNFT();
+        PlantsData memory p = Plants.get(uint32(nft.chainId), nft.contractAddress, nft.tokenId);
         if (_dead(p)) {
             return compost();
         }
@@ -91,7 +92,7 @@ contract PlantSystem is System {
         if (uint256(p.lifecycleStage) < uint256(PlantLifecycleStage.COMMON_FLOWER)) {
             uint256 ev = _wateringsUntilEvolve(p);
             if (ev == 0) {
-                Plants.setLifecycleStage(chainId, contract_, tokenId, _newStage(p));
+                Plants.setLifecycleStage(p.chainId, p.contractAddress, p.tokenId, _newStage(p));
             }
             if (p.lifecycleStage == PlantLifecycleStage.SEEDLING && ev == 1) {
                 requestRandom(p.chainId, p.contractAddress, p.tokenId);
@@ -102,7 +103,7 @@ contract PlantSystem is System {
             mintSeed(p);
         }
 
-        Plants.setWateredAt(chainId, contract_, tokenId, ArbSys(address(100)).arbBlockNumber());
+        Plants.setWateredAt(p.chainId, p.contractAddress, p.tokenId, ArbSys(address(100)).arbBlockNumber());
     }
 
     function compost() public {

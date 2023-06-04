@@ -99,9 +99,6 @@ export function createSystemCalls({
     const tx = await worldSend(
       "water",
       [
-        chainId,
-        contract,
-        tokenId,
         {
           customData: {
             nftChainId: chainId,
