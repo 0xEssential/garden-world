@@ -146,7 +146,7 @@ root.render(
 
 function GameLayout() {
   useEffect(() => {
-    mountDevTools();
+    // mountDevTools();
   }, []);
 
   const burner = useBurnerWallet();
