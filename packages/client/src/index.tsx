@@ -3,7 +3,7 @@ import "./globals.css";
 import "react-toastify/dist/ReactToastify.minimal.css";
 
 import "@rainbow-me/rainbowkit/styles.css";
-import { Slide, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import {
   BrowserRouter as Router,
   Routes,
@@ -34,7 +34,6 @@ import {
   RainbowKitProvider,
 } from "@rainbow-me/rainbowkit";
 import { EssentialProvider } from "@xessential/react";
-import { JsonRpcProvider } from "@ethersproject/providers";
 import { arbitrumNova, arbitrumGoerli, foundry, mainnet } from "@wagmi/chains";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
@@ -59,28 +58,23 @@ const infuraName = (chainId: number) => {
 
 const _chains = [arbitrumGoerli];
 const { chains, provider } = configureChains(_chains as any, [
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  //@ts-ignore
-  // infuraProvider({
-  //   apiKey: import.meta.env.VITE_INFURA_KEY,
-  // }),
-  // jsonRpcProvider({
-  //   rpc: (chain) =>
-  //     chain.id === 42170
-  //       ? {
-  //           http: `https://nova.arbitrum.io/rpc`,
-  //         }
-  //       : {
-  //           http: `https://${infuraName(chain.id)}.infura.io/v3/${
-  //             import.meta.env.VITE_INFURA_KEY
-  //           }`,
-  //         },
-  // }),
-
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  //@ts-ignore
+  infuraProvider({
+    apiKey: import.meta.env.VITE_INFURA_KEY,
+  }),
+  jsonRpcProvider({
+    rpc: (chain) =>
+      chain.id === 42170
+        ? {
+            http: `https://nova.arbitrum.io/rpc`,
+          }
+        : {
+            http: `https://${infuraName(chain.id)}.infura.io/v3/${
+              import.meta.env.VITE_INFURA_KEY
+            }`,
+          },
+  }),
   alchemyProvider({ apiKey: "vmhRKsnCBTvlpFnzQOKRpgz8E1k5NO-N" }),
-  // publicProvider(),
+  publicProvider(),
 ]);
 
 const { connectors } = getDefaultWallets({
@@ -115,7 +109,6 @@ root.render(
           theme={midnightTheme({
             accentColor: "#eeee9b",
             accentColorForeground: "#276B3A",
-            // borderRadius: "small",
           })}
         >
           <ToastContainer
@@ -129,7 +122,7 @@ root.render(
           />
           <Router>
             <Routes>
-              <Route path="/" element={<GameLayout />}>
+              <Route path="/" element={<Layout />}>
                 <Route path="/" index element={<Game />} />
                 <Route path="/nursery" element={<Nursery />} />
                 <Route path="/botany" element={<Botany />} />
@@ -139,14 +132,12 @@ root.render(
         </RainbowKitProvider>
       </EssentialProvider>
     </WagmiConfig>
-    {/* {}{" "} */}
   </>
 );
-// });
 
-function GameLayout() {
+function DevLayout() {
   useEffect(() => {
-    // mountDevTools();
+    mountDevTools();
   }, []);
 
   const burner = useBurnerWallet();
