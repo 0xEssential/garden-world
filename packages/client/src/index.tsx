@@ -58,23 +58,23 @@ const infuraName = (chainId: number) => {
 
 const _chains = [arbitrumGoerli];
 const { chains, provider } = configureChains(_chains as any, [
-  infuraProvider({
-    apiKey: import.meta.env.VITE_INFURA_KEY,
-  }),
-  jsonRpcProvider({
-    rpc: (chain) =>
-      chain.id === 42170
-        ? {
-            http: `https://nova.arbitrum.io/rpc`,
-          }
-        : {
-            http: `https://${infuraName(chain.id)}.infura.io/v3/${
-              import.meta.env.VITE_INFURA_KEY
-            }`,
-          },
-  }),
+  // infuraProvider({
+  //   apiKey: import.meta.env.VITE_INFURA_KEY,
+  // }),
+  // jsonRpcProvider({
+  //   rpc: (chain) =>
+  //     chain.id === 42170
+  //       ? {
+  //           http: `https://nova.arbitrum.io/rpc`,
+  //         }
+  //       : {
+  //           http: `https://${infuraName(chain.id)}.infura.io/v3/${
+  //             import.meta.env.VITE_INFURA_KEY
+  //           }`,
+  //         },
+  // }),
   alchemyProvider({ apiKey: "vmhRKsnCBTvlpFnzQOKRpgz8E1k5NO-N" }),
-  publicProvider(),
+  // publicProvider(),
 ]);
 
 const { connectors } = getDefaultWallets({
