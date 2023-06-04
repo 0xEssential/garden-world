@@ -41,7 +41,6 @@ import { Nursery } from "./Nursery";
 import { Game } from "./game/ui/Game";
 import { useEffect } from "react";
 import { alchemyProvider } from "wagmi/providers/alchemy";
-import { arbGoerli } from "./mud/arbGoerli";
 import { useBurnerWallet } from "./hooks/useBurnerWallet";
 import { Login } from "./components/Login";
 
@@ -73,12 +72,12 @@ const { chains, provider } = configureChains(_chains as any, [
             }`,
           },
   }),
-  alchemyProvider({ apiKey: "vmhRKsnCBTvlpFnzQOKRpgz8E1k5NO-N" }),
+  alchemyProvider({ apiKey: import.meta.env.VITE_ALCHEMY_KEY }),
   publicProvider(),
 ]);
 
 const { connectors } = getDefaultWallets({
-  appName: "Garden🪻",
+  appName: "Garden",
   chains,
 });
 
