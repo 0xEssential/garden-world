@@ -132,8 +132,6 @@ root.render(
               <Route path="/" element={<GameLayout />}>
                 <Route path="/" index element={<Game />} />
                 <Route path="/nursery" element={<Nursery />} />
-              </Route>
-              <Route path="/" element={<Layout />}>
                 <Route path="/botany" element={<Botany />} />
               </Route>
             </Routes>
