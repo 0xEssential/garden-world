@@ -25,11 +25,7 @@ contract PlantSystem is System {
     }
 
     mapping(uint256 => bytes) internal randomizerRequests;
-    IRandomizer public randomizer;
-
-    constructor() {
-        randomizer = IRandomizer(0x923096Da90a3b60eb7E12723fA2E1547BA9236Bc);
-    }
+    IRandomizer public randomizer = IRandomizer(0x923096Da90a3b60eb7E12723fA2E1547BA9236Bc);
 
     function _msgNFT() internal pure returns (IForwardRequest.NFT memory) {
         uint256 chainId;
@@ -94,7 +90,7 @@ contract PlantSystem is System {
             if (ev == 0) {
                 Plants.setLifecycleStage(p.chainId, p.contractAddress, p.tokenId, _newStage(p));
             }
-            if (p.lifecycleStage == PlantLifecycleStage.SEEDLING && ev == 1) {
+            if (p.lifecycleStage == PlantLifecycleStage.BUD && ev == 1) {
                 requestRandom(p.chainId, p.contractAddress, p.tokenId);
             }
         }
@@ -117,7 +113,7 @@ contract PlantSystem is System {
             Plants.setEntropy(chainId, contract_, tokenId, block.timestamp);
             return;
         }
-        uint256 requestId = randomizer.request(42069);
+        uint256 requestId = randomizer.request(50000);
 
         randomizerRequests[requestId] = abi.encode(chainId, contract_, tokenId);
     }
