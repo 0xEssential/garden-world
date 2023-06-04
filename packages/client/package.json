@@ -30,7 +30,6 @@
     "@xessential/react": "0.0.1-beta.91",
     "@xessential/signer": "0.0.1-beta.10",
     "alchemy-sdk": "^2.8.3",
-    "contracts": "workspace:*",
     "crypto-browserify": "^3.12.0",
     "ethers": "^5.7.2",
     "lodash": "^4.17.21",
