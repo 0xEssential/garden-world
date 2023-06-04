@@ -1,0 +1,29 @@
+{
+  "name": "@0xessential/contracts",
+  "description": "contracts for nFight",
+  "version": "0.0.1-beta-16",
+  "files": [
+    "**/*.sol",
+    "/build/contracts/*.json",
+    "!/mocks/**/*"
+  ],
+  "scripts": {
+    "prepare": "bash ../scripts/prepare-contracts-package.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0xEssential/nfight/contracts.git"
+  },
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "smart",
+    "contracts"
+  ],
+  "author": "0xEssential <hello@0xessential.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/0xEssential/nfight/contracts/issues"
+  },
+  "homepage": "https://github.com/0xEssential/nfight/contracts/"
+}

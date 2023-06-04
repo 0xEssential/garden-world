@@ -1,0 +1,20 @@
+node_modules
+.env
+coverage
+coverage.json
+typechain
+typechain-types
+
+# Foundry files
+out
+forge-cache
+
+# Hardhat files
+cache
+artifacts
+build
+
+# Foundry files
+forge-cache/
+out/
+broadcast/

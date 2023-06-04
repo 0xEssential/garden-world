@@ -1,0 +1,37 @@
+[profile.default]
+solc_version = "0.8.17"
+ffi = false
+fuzz_runs = 256
+optimizer = true
+optimizer_runs = 3000
+verbosity = 1
+src = "src"
+test = "test"
+out = "out"
+allow_paths = ["../../node_modules", "../../../../packages"]
+extra_output_files = [
+  "abi",
+  "evm.bytecode"
+]
+fs_permissions = [{ access = "read", path = "./"}]
+
+[profile.lattice-testnet]
+eth_rpc_url = "https://follower.testnet-chain.linfra.xyz"
+
+[profile.hackathon-testnet]
+eth_rpc_url = "https://lattice-goerli-sequencer.optimism.io"
+
+[profile.forked]
+eth_rpc_url = "http://127.0.0.1:8545"
+
+[profile.arb-goerli]
+eth_rpc_url =  "${ARB_GOERLI_RPC_URL}"
+
+[profile.arb-nova]
+eth_rpc_url =  "${ARB_NOVA_RPC_URL}"
+
+[etherscan]
+arb-goerli  = { key = "${ARBISCAN_API_KEY}", url = "https://api-goerli.arbiscan.io/api" }
+arb-mainnet = { key = "${ARBISCAN_API_KEY}", url = "https://api.arbiscan.io/api" }
+arb-nova    = { key = "${ARBISCAN_API_KEY}", url = "https://api.arbiscan.io/api" }
+

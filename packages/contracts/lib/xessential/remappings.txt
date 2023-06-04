@@ -1,0 +1,4 @@
+forge-std/=packages/contracts/lib/forge-std/src/
+contracts/=packages/contracts/contracts/
+@openzeppelin/contracts=packages/contracts/node_modules/@openzeppelin/contracts/
+@openzeppelin/contracts-upgradeable=packages/contracts/node_modules/@openzeppelin/contracts-upgradeable/

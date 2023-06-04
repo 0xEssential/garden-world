@@ -1,0 +1,43 @@
+{
+  "name": "@xessential/signer",
+  "version": "0.0.1-beta.5",
+  "description": "",
+  "main": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "type": "module",
+  "scripts": {
+  "build": "yarn tsc --project tsconfig.esm.json & yarn tsc --project tsconfig.cjs.json",
+  "test": "echo \"Error: no test specified\" && exit 0",
+  "lint": "yarn eslint .",
+  "lint:fix": "yarn eslint src/ --fix"
+  },
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js",
+    "default": "./dist/cjs/index.js"
+  },
+  "files": [
+    "dist",
+    "!**/*.spec.*",
+    "README.md"
+  ],
+  "author": "sbauch",
+  "license": "MIT",
+  "dependencies": {
+    "@ethersproject/abstract-provider": "^5.7.0",
+    "@metamask/eth-sig-util": "^4.0.1",
+    "ethers": "^5.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "@typescript-eslint/eslint-plugin": "^5.21.0",
+    "@typescript-eslint/parser": "^5.21.0",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "prettier": "^2.6.2",
+    "typescript": "^4.5.4"
+  }
+}
+

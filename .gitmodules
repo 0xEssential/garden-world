@@ -1,0 +1,18 @@
+[submodule "packages/contracts/lib/xessential"]
+	path = packages/contracts/lib/xessential
+	url = https://github.com/0xessential/xessential
+[submodule "packages/contracts/lib/chainlink"]
+	path = packages/contracts/lib/chainlink
+	url = https://github.com/smartcontractkit/chainlink
+[submodule "packages/contracts/lib/openzeppelin-contracts"]
+	path = packages/contracts/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "packages/contracts/lib/solady"]
+	path = packages/contracts/lib/solady
+	url = https://github.com/vectorized/solady
+[submodule "packages/contracts/lib/solmate"]
+	path = packages/contracts/lib/solmate
+	url = https://github.com/transmissions11/solmate
+[submodule "packages/contracts/lib/clones-with-immutable-args"]
+	path = packages/contracts/lib/clones-with-immutable-args
+	url = https://github.com/wighawag/clones-with-immutable-args
