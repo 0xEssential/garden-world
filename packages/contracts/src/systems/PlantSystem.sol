@@ -119,7 +119,7 @@ contract PlantSystem is System {
     }
 
     function randomizerCallback(uint256 _id, bytes32 _value) external {
-        require(msg.sender == address(randomizer), "Caller not Randomizer");
+        require(_msgSender() == address(randomizer), "Caller not Randomizer");
 
         bytes memory plantId = randomizerRequests[_id];
         delete randomizerRequests[_id];
