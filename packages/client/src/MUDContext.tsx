@@ -57,15 +57,14 @@ const MUDProvider = ({
   }, [signer]);
 
   useEffect(() => {
-    if (!config.relayerUri || loading || isLoading || (!isConnected && !signer))
-      return;
-    console.warn("init", signer, wallet, config, isConnected, loading);
+    if (!config.relayerUri || isLoading || (!isConnected && !signer)) return;
+    console.warn("init", signer, wallet, config, isConnected);
     const init = async (c: any, s: any, wallet: any) => {
       const _network = await setupNetwork(c, s, wallet);
       setNetwork(_network);
     };
     init(config, signer as Signer, wallet);
-  }, [signer, wallet, config, isConnected, loading, isLoading]);
+  }, [signer, wallet, config, isConnected, isLoading]);
 
   useEffect(() => {
     if (!network || initialized) return;

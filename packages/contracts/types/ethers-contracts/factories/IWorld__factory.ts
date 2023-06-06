@@ -299,25 +299,6 @@ const _abi = [
   {
     inputs: [
       {
-        internalType: "bytes",
-        name: "data",
-        type: "bytes",
-      },
-    ],
-    name: "bytesToHexString",
-    outputs: [
-      {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
-    ],
-    stateMutability: "pure",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
         internalType: "bytes16",
         name: "namespace",
         type: "bytes16",
@@ -739,61 +720,9 @@ const _abi = [
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint16",
-        name: "chainId",
-        type: "uint16",
-      },
-      {
-        internalType: "address",
-        name: "contract_",
-        type: "address",
-      },
-      {
-        internalType: "string",
-        name: "name",
-        type: "string",
-      },
-    ],
-    name: "integrateProject",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
     inputs: [],
     name: "isStore",
     outputs: [],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint16",
-        name: "chainId",
-        type: "uint16",
-      },
-      {
-        internalType: "address",
-        name: "contract_",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "tokenId",
-        type: "uint256",
-      },
-    ],
-    name: "lifecyleStage",
-    outputs: [
-      {
-        internalType: "enum PlantLifecycleStage",
-        name: "",
-        type: "uint8",
-      },
-    ],
     stateMutability: "view",
     type: "function",
   },

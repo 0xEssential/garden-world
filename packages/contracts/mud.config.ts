@@ -9,10 +9,6 @@ export default mudConfig({
       name: "PlantSystem",
       openAccess: true,
     },
-    ProjectSystem: {
-      name: "ProjectSystem",
-      openAccess: true,
-    },
     SpeciesSystem: {
       name: "SpeciesSystem",
       openAccess: true,

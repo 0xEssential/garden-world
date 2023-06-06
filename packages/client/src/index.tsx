@@ -142,9 +142,9 @@ function DevLayout() {
   const burner = useBurnerWallet();
   const signer = useSigner();
 
-  if (burner.loading || signer.isLoading || signer.isRefetching) {
-    return null;
-  }
+  // if (burner.loading || signer.isLoading || signer.isRefetching) {
+  //   return null;
+  // }
 
   if (!burner.wallet && !signer.data) {
     return <Login />;
@@ -165,9 +165,9 @@ function Layout() {
   const burner = useBurnerWallet();
   const signer = useSigner();
 
-  if (burner.loading || signer.isLoading || signer.isRefetching) {
-    return null;
-  }
+  // if (burner.loading || signer.isLoading || signer.isRefetching) {
+  //   return null;
+  // }
 
   if (!burner.wallet && !signer.data) {
     return <Login />;

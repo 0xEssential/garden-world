@@ -6,7 +6,7 @@ import {Projects, ProjectsData, Plants, PlantsData} from "../codegen/Tables.sol"
 import {PlantLifecycleStage} from "../codegen/Types.sol";
 import {IForwardRequest} from "@xessential/contracts/fwd/IForwardRequest.sol";
 import {PlantSpeciesERC721} from "../PlantSpeciesERC721.sol";
-import "../IRandomizer.sol";
+import {IRandomizer} from "../IRandomizer.sol";
 
 interface ArbSys {
     /**
@@ -124,7 +124,7 @@ contract PlantSystem is System {
         bytes memory plantId = randomizerRequests[_id];
         delete randomizerRequests[_id];
 
-        (uint16 chainId, address contract_, uint256 tokenId) = abi.decode(plantId, (uint16, address, uint256));
+        (uint32 chainId, address contract_, uint256 tokenId) = abi.decode(plantId, (uint32, address, uint256));
         Plants.setEntropy(chainId, contract_, tokenId, uint256(_value));
     }
 
@@ -230,29 +230,5 @@ contract PlantSystem is System {
         uint8 lifecycleLength = Projects.getLifecycleLength(bytes32(uint256(uint160(address(p.contractAddress)))));
         uint256 requiredBlocks = blockLength * lifecycleLength * 50;
         return ArbSys(address(100)).arbBlockNumber() >= p.plantedAt + requiredBlocks;
-    }
-
-    function lifecyleStage(uint16 chainId, address contract_, uint256 tokenId)
-        public
-        view
-        returns (PlantLifecycleStage)
-    {
-        PlantsData memory p = Plants.get(chainId, contract_, tokenId);
-
-        // TODO: calculcate this based on block number
-        return p.lifecycleStage;
-    }
-
-    function bytesToHexString(bytes memory data) public pure returns (string memory) {
-        bytes memory hexString = new bytes(data.length * 2);
-        bytes memory alphabet = "0123456789abcdef";
-
-        for (uint256 i = 0; i < data.length; i++) {
-            uint8 byteVal = uint8(data[i]);
-            hexString[i * 2] = alphabet[byteVal / 16];
-            hexString[i * 2 + 1] = alphabet[byteVal % 16];
-        }
-
-        return string(abi.encodePacked("0x", hexString));
     }
 }

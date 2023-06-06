@@ -30,7 +30,6 @@ import type {
 
 export interface IWorldInterface extends utils.Interface {
   functions: {
-    "bytesToHexString(bytes)": FunctionFragment;
     "call(bytes16,bytes16,bytes)": FunctionFragment;
     "compost()": FunctionFragment;
     "deleteRecord(bytes32,bytes32[])": FunctionFragment;
@@ -48,9 +47,7 @@ export interface IWorldInterface extends utils.Interface {
     "grantAccess(bytes16,bytes16,address)": FunctionFragment;
     "installModule(address,bytes)": FunctionFragment;
     "installRootModule(address,bytes)": FunctionFragment;
-    "integrateProject(uint16,address,string)": FunctionFragment;
     "isStore()": FunctionFragment;
-    "lifecyleStage(uint16,address,uint256)": FunctionFragment;
     "mintSpecies(address,uint256)": FunctionFragment;
     "plantSeed(uint8)": FunctionFragment;
     "popFromField(bytes16,bytes16,bytes32[],uint8,uint256)": FunctionFragment;
@@ -84,7 +81,6 @@ export interface IWorldInterface extends utils.Interface {
 
   getFunction(
     nameOrSignatureOrTopic:
-      | "bytesToHexString"
       | "call"
       | "compost"
       | "deleteRecord(bytes32,bytes32[])"
@@ -102,9 +98,7 @@ export interface IWorldInterface extends utils.Interface {
       | "grantAccess"
       | "installModule"
       | "installRootModule"
-      | "integrateProject"
       | "isStore"
-      | "lifecyleStage"
       | "mintSpecies"
       | "plantSeed"
       | "popFromField(bytes16,bytes16,bytes32[],uint8,uint256)"
@@ -136,10 +130,6 @@ export interface IWorldInterface extends utils.Interface {
       | "waterable"
   ): FunctionFragment;
 
-  encodeFunctionData(
-    functionFragment: "bytesToHexString",
-    values: [PromiseOrValue<BytesLike>]
-  ): string;
   encodeFunctionData(
     functionFragment: "call",
     values: [
@@ -253,23 +243,7 @@ export interface IWorldInterface extends utils.Interface {
     functionFragment: "installRootModule",
     values: [PromiseOrValue<string>, PromiseOrValue<BytesLike>]
   ): string;
-  encodeFunctionData(
-    functionFragment: "integrateProject",
-    values: [
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<string>,
-      PromiseOrValue<string>
-    ]
-  ): string;
   encodeFunctionData(functionFragment: "isStore", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "lifecyleStage",
-    values: [
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>
-    ]
-  ): string;
   encodeFunctionData(
     functionFragment: "mintSpecies",
     values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
@@ -492,10 +466,6 @@ export interface IWorldInterface extends utils.Interface {
     ]
   ): string;
 
-  decodeFunctionResult(
-    functionFragment: "bytesToHexString",
-    data: BytesLike
-  ): Result;
   decodeFunctionResult(functionFragment: "call", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "compost", data: BytesLike): Result;
   decodeFunctionResult(
@@ -552,15 +522,7 @@ export interface IWorldInterface extends utils.Interface {
     functionFragment: "installRootModule",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(
-    functionFragment: "integrateProject",
-    data: BytesLike
-  ): Result;
   decodeFunctionResult(functionFragment: "isStore", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "lifecyleStage",
-    data: BytesLike
-  ): Result;
   decodeFunctionResult(
     functionFragment: "mintSpecies",
     data: BytesLike
@@ -763,11 +725,6 @@ export interface IWorld extends BaseContract {
   removeListener: OnEvent<this>;
 
   functions: {
-    bytesToHexString(
-      data: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<[string]>;
-
     call(
       namespace: PromiseOrValue<BytesLike>,
       name: PromiseOrValue<BytesLike>,
@@ -884,21 +841,7 @@ export interface IWorld extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
-    integrateProject(
-      chainId: PromiseOrValue<BigNumberish>,
-      contract_: PromiseOrValue<string>,
-      name: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<ContractTransaction>;
-
     isStore(overrides?: CallOverrides): Promise<[void]>;
-
-    lifecyleStage(
-      chainId: PromiseOrValue<BigNumberish>,
-      contract_: PromiseOrValue<string>,
-      tokenId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<[number]>;
 
     mintSpecies(
       contract_: PromiseOrValue<string>,
@@ -1113,11 +1056,6 @@ export interface IWorld extends BaseContract {
     ): Promise<[boolean]>;
   };
 
-  bytesToHexString(
-    data: PromiseOrValue<BytesLike>,
-    overrides?: CallOverrides
-  ): Promise<string>;
-
   call(
     namespace: PromiseOrValue<BytesLike>,
     name: PromiseOrValue<BytesLike>,
@@ -1234,21 +1172,7 @@ export interface IWorld extends BaseContract {
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
-  integrateProject(
-    chainId: PromiseOrValue<BigNumberish>,
-    contract_: PromiseOrValue<string>,
-    name: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
-  ): Promise<ContractTransaction>;
-
   isStore(overrides?: CallOverrides): Promise<void>;
-
-  lifecyleStage(
-    chainId: PromiseOrValue<BigNumberish>,
-    contract_: PromiseOrValue<string>,
-    tokenId: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
-  ): Promise<number>;
 
   mintSpecies(
     contract_: PromiseOrValue<string>,
@@ -1463,11 +1387,6 @@ export interface IWorld extends BaseContract {
   ): Promise<boolean>;
 
   callStatic: {
-    bytesToHexString(
-      data: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<string>;
-
     call(
       namespace: PromiseOrValue<BytesLike>,
       name: PromiseOrValue<BytesLike>,
@@ -1582,21 +1501,7 @@ export interface IWorld extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
-    integrateProject(
-      chainId: PromiseOrValue<BigNumberish>,
-      contract_: PromiseOrValue<string>,
-      name: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<void>;
-
     isStore(overrides?: CallOverrides): Promise<void>;
-
-    lifecyleStage(
-      chainId: PromiseOrValue<BigNumberish>,
-      contract_: PromiseOrValue<string>,
-      tokenId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<number>;
 
     mintSpecies(
       contract_: PromiseOrValue<string>,
@@ -1856,11 +1761,6 @@ export interface IWorld extends BaseContract {
   };
 
   estimateGas: {
-    bytesToHexString(
-      data: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
-
     call(
       namespace: PromiseOrValue<BytesLike>,
       name: PromiseOrValue<BytesLike>,
@@ -1977,21 +1877,7 @@ export interface IWorld extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
-    integrateProject(
-      chainId: PromiseOrValue<BigNumberish>,
-      contract_: PromiseOrValue<string>,
-      name: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
-
     isStore(overrides?: CallOverrides): Promise<BigNumber>;
-
-    lifecyleStage(
-      chainId: PromiseOrValue<BigNumberish>,
-      contract_: PromiseOrValue<string>,
-      tokenId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
 
     mintSpecies(
       contract_: PromiseOrValue<string>,
@@ -2207,11 +2093,6 @@ export interface IWorld extends BaseContract {
   };
 
   populateTransaction: {
-    bytesToHexString(
-      data: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
     call(
       namespace: PromiseOrValue<BytesLike>,
       name: PromiseOrValue<BytesLike>,
@@ -2328,21 +2209,7 @@ export interface IWorld extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
-    integrateProject(
-      chainId: PromiseOrValue<BigNumberish>,
-      contract_: PromiseOrValue<string>,
-      name: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<PopulatedTransaction>;
-
     isStore(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
-    lifecyleStage(
-      chainId: PromiseOrValue<BigNumberish>,
-      contract_: PromiseOrValue<string>,
-      tokenId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
 
     mintSpecies(
       contract_: PromiseOrValue<string>,

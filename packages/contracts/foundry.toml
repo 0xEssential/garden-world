@@ -25,7 +25,7 @@ eth_rpc_url = "https://lattice-goerli-sequencer.optimism.io"
 eth_rpc_url = "http://127.0.0.1:8545"
 
 [profile.arb-goerli]
-eth_rpc_url =  "https://arbitrum-goerli.infura.io/v3/52df67b856a74b8595ce686090ed9c8b"
+eth_rpc_url =  "https://small-quaint-arrow.arbitrum-goerli.quiknode.pro/677a08f87297c276f307f3a2bb252ea963adc60a"
 
 [profile.arb-nova]
 eth_rpc_url =  "${ARB_NOVA_RPC_URL}"
