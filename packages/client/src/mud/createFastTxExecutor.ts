@@ -172,6 +172,8 @@ export async function createFastTxExecutor(
           req as TransactionRequest & EssentialOverrides
         );
 
+        console.warn("meta-tx hash", tx);
+
         hash = tx.hash;
       } else if (proof != "") {
         // TODO: this could also use the try sign / send fallback pattern
