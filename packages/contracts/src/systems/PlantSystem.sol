@@ -113,7 +113,7 @@ contract PlantSystem is System {
             Plants.setEntropy(chainId, contract_, tokenId, block.timestamp);
             return;
         }
-        uint256 requestId = randomizer.request(50000);
+        uint256 requestId = randomizer.request(150000);
 
         randomizerRequests[requestId] = abi.encode(chainId, contract_, tokenId);
     }
@@ -122,7 +122,6 @@ contract PlantSystem is System {
         require(_msgSender() == address(randomizer), "Caller not Randomizer");
 
         bytes memory plantId = randomizerRequests[_id];
-        delete randomizerRequests[_id];
 
         (uint32 chainId, address contract_, uint256 tokenId) = abi.decode(plantId, (uint32, address, uint256));
         Plants.setEntropy(chainId, contract_, tokenId, uint256(_value));

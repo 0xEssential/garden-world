@@ -8,9 +8,13 @@ The project explores how to make onchain AW games more accessible, open and inte
 
 The Autonomous World games we've seen so far have offered deeply defined worlds manipulable only by engineers. Projects like Dark Forest and OPCraft define their worlds as complete environments more akin to a universe - whole cloth sandboxes that invite others to come play within defined rules and systems. Participation in these Autonomous Worlds has been limited by technical proficiency, where engineers must write code and deploy smart contracts to create new world functionality or systems.
 
-UGG aims to take a slightly different approach, with much respect to the other AW builders. The gardening world is not a universe, it's a composable sphere that contains a single class of object - plants! Our world doesn't have weather, it doesn't have lore. There aren't any physics, or water scarcity, or even sunlight. A more deeply defined world might attempt a more immersive simulation with pest infestation, or climate, or an economy. UGG is a grouping of similar objects you care about with simple, portable game mechanics. It can exist on it's own, but it's also oriented towards being integrated into other experiences.
+UGG aims to take a slightly different approach, with much respect to the other AW builders. The gardening world is not a universe, it's a composable sphere that contains a single class of object - plants! Our world doesn't have weather, it doesn't have lore. There aren't any physics, or water scarcity, or even sunlight. 
 
-UGG's simplicity enables a more open and acessible world for a wider array of creators, not just engineers. Anyone can create their own PlaNFT species - for free, without writing any code. Design a sprite sheet for a plant, configure some game mechanics, set your mint price and supply, and UGG deploys an NFT contract for you. Your plant species is automatically registered in the Garden World for anyone to mint and grow (we do charge a 2% fee on mints). You own the contract - manage it on marketplaces, maintain provenance - it's a standard ERC721 contract with the added benefit of UGG integration.
+A more deeply defined world might attempt a more immersive simulation with pest infestation, or climate, or an economy. UGG is a grouping of similar objects you care about with simple, portable game mechanics. It can exist on it's own, but it's also oriented towards being integrated into other experiences.
+
+UGG's simplicity enables a more open and acessible world for a wider array of creators, not just engineers. Anyone can create their own PlaNFT species - for free, without writing any code. Design a sprite sheet for a plant, configure some game mechanics, set your mint price and supply, and UGG deploys an NFT contract for you.
+
+Your plant species is automatically registered in the Garden World for anyone to mint and grow (we do charge a 2% fee on mints). You own the contract - manage it on marketplaces, maintain provenance - it's a standard ERC721 contract with the added benefit of UGG integration.
 
 ### Gameplay
 
