@@ -97,7 +97,6 @@ root.render(
       <EssentialProvider
         config={{
           burnerApiKey: import.meta.env.VITE_BURNER_API_KEY,
-          burnerApiUrl: "https://burner-auth-api.herokuapp.com/",
           relayerUri:
             "https://api.defender.openzeppelin.com/autotasks/b50e2557-a4c9-4836-9b97-d05d25b32f0f/runs/webhook/8c55425f-87ed-485b-998c-162c3cf2b412/8WNNSvhPzYxU8JNnW3iT2o",
           readProvider: provider,
