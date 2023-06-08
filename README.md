@@ -17,6 +17,7 @@ UGG's simplicity enables a more open and acessible world for a wider array of cr
 Your plant species is automatically registered in the Garden World for anyone to mint and grow (we do charge a 2% fee on mints). You own the contract - manage it on marketplaces, maintain provenance - it's a standard ERC721 contract with the added benefit of UGG integration.
 
 ### Gameplay
+<img width="1203" alt="Screenshot 2023-05-31 at 5 12 02 PM" src="https://github.com/0xEssential/garden-world/assets/923033/48c6d401-e6d7-4302-9f70-ebd50fd7a208">
 
 The goal of the game is to grow plants. Every plant is an NFT you mint and sow in your garden. Plants must be watered regularly or else they die.
 
