@@ -58,16 +58,21 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
       apiKey: import.meta.env.VITE_INFURA_KEY,
     }),
     jsonRpcProvider({
-      rpc: (chain) =>
-        chain.id === 42170
-          ? {
-              http: `https://nova.arbitrum.io/rpc`,
-            }
-          : {
-              http: `https://${infuraName(chain.id)}.infura.io/v3/${
-                import.meta.env.VITE_INFURA_KEY
-              }`,
-            },
+      rpc: (chain) => {
+        if (chain.id === 42170) return { http: `https://nova.arbitrum.io/rpc` };
+        if (chain.id === 421613)
+          return {
+            http: `https://still-orbital-slug.arbitrum-goerli.quiknode.pro/34b170f5e28481fbc03288e1993b5968b59f5292/`,
+            webSocket:
+              "wss://still-orbital-slug.arbitrum-goerli.quiknode.pro/34b170f5e28481fbc03288e1993b5968b59f5292/",
+          };
+
+        return {
+          http: `https://${infuraName(chain.id)}.infura.io/v3/${
+            import.meta.env.VITE_INFURA_KEY
+          }`,
+        };
+      },
     }),
     alchemyProvider({ apiKey: import.meta.env.VITE_ALCHEMY_KEY }),
     publicProvider(),
