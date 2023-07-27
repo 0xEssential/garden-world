@@ -52,7 +52,7 @@ const infuraName = (chainId: number) => {
 };
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [mainnet, arbitrumGoerli],
+  [arbitrumGoerli],
   [
     infuraProvider({
       apiKey: import.meta.env.VITE_INFURA_KEY,
