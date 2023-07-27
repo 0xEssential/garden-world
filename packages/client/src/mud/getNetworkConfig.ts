@@ -60,9 +60,9 @@ export async function getNetworkConfig(): Promise<NetworkConfig> {
         skipNetworkCheck: true,
       },
     },
-    chainConfig: {
-      ...arbitrumGoerli,
-    },
+    // chainConfig: {
+    //   ...arbitrumGoerli,
+    // },
     privateKey: getBurnerWallet().value,
     chainId,
     modeUrl: params.get("mode") ?? chain.modeUrl,
