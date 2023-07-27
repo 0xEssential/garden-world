@@ -18,9 +18,7 @@ type NetworkConfig = SetupContractConfig & {
 export async function getNetworkConfig(): Promise<NetworkConfig> {
   const params = new URLSearchParams(window.location.search);
 
-  const chainId = Number(
-    params.get("chainId") || import.meta.env.VITE_CHAIN_ID
-  );
+  const chainId = Number(params.get("chainId") || 421613);
   const chainIndex = supportedChains.findIndex((c) => c.id === chainId);
   const chain = supportedChains[chainIndex];
   if (!chain) {
@@ -60,9 +58,27 @@ export async function getNetworkConfig(): Promise<NetworkConfig> {
         skipNetworkCheck: true,
       },
     },
-    // chainConfig: {
-    //   ...arbitrumGoerli,
-    // },
+    chainConfig: {
+      ...arbitrumGoerli,
+      rpcUrls: {
+        default: {
+          http: [
+            "https://still-orbital-slug.arbitrum-goerli.quiknode.pro/34b170f5e28481fbc03288e1993b5968b59f5292/",
+          ],
+          webSocket: [
+            "wss://still-orbital-slug.arbitrum-goerli.quiknode.pro/34b170f5e28481fbc03288e1993b5968b59f5292/",
+          ],
+        },
+        public: {
+          http: [
+            "https://still-orbital-slug.arbitrum-goerli.quiknode.pro/34b170f5e28481fbc03288e1993b5968b59f5292/",
+          ],
+          webSocket: [
+            "wss://still-orbital-slug.arbitrum-goerli.quiknode.pro/34b170f5e28481fbc03288e1993b5968b59f5292/",
+          ],
+        },
+      },
+    },
     privateKey: getBurnerWallet().value,
     chainId,
     modeUrl: params.get("mode") ?? chain.modeUrl,
