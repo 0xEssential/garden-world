@@ -51,9 +51,9 @@ export async function getNetworkConfig(): Promise<NetworkConfig> {
     provider: {
       chainId,
       jsonRpcUrl:
-        "https://small-quaint-arrow.arbitrum-goerli.quiknode.pro/677a08f87297c276f307f3a2bb252ea963adc60a/",
+        "https://still-orbital-slug.arbitrum-goerli.quiknode.pro/34b170f5e28481fbc03288e1993b5968b59f5292/",
       wsRpcUrl:
-        "wss://small-quaint-arrow.arbitrum-goerli.quiknode.pro/677a08f87297c276f307f3a2bb252ea963adc60a/",
+        "wss://still-orbital-slug.arbitrum-goerli.quiknode.pro/34b170f5e28481fbc03288e1993b5968b59f5292/",
       options: {
         pollingInterval: 20_000,
         batch: true,
