@@ -13,18 +13,12 @@ import {
 import ReactDOM from "react-dom/client";
 import { mount as mountDevTools } from "@latticexyz/dev-tools";
 import MUDProvider from "./MUDContext";
-import {
-  configureChains,
-  createClient,
-  useAccount,
-  useSigner,
-  WagmiConfig,
-} from "wagmi";
+import { configureChains, createConfig, mainnet, WagmiConfig } from "wagmi";
+import { arbitrumGoerli } from "wagmi/chains";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 import { infuraProvider } from "wagmi/providers/infura";
 import { publicProvider } from "wagmi/providers/public";
 
-import { App } from "./App";
 import { Botany } from "./Botany";
 
 import {
@@ -33,8 +27,8 @@ import {
   midnightTheme,
   RainbowKitProvider,
 } from "@rainbow-me/rainbowkit";
+
 import { EssentialProvider } from "@xessential/react";
-import { arbitrumNova, arbitrumGoerli, foundry, mainnet } from "@wagmi/chains";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Nursery } from "./Nursery";
@@ -43,6 +37,8 @@ import { useEffect } from "react";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { useBurnerWallet } from "./hooks/useBurnerWallet";
 import { Login } from "./components/Login";
+import { useEthersSigner } from "./hooks/useEthersSigner";
+import { providers } from "ethers";
 
 const infuraName = (chainId: number) => {
   switch (chainId) {
@@ -55,36 +51,40 @@ const infuraName = (chainId: number) => {
   }
 };
 
-const _chains = [arbitrumGoerli];
-const { chains, provider } = configureChains(_chains as any, [
-  infuraProvider({
-    apiKey: import.meta.env.VITE_INFURA_KEY,
-  }),
-  jsonRpcProvider({
-    rpc: (chain) =>
-      chain.id === 42170
-        ? {
-            http: `https://nova.arbitrum.io/rpc`,
-          }
-        : {
-            http: `https://${infuraName(chain.id)}.infura.io/v3/${
-              import.meta.env.VITE_INFURA_KEY
-            }`,
-          },
-  }),
-  alchemyProvider({ apiKey: import.meta.env.VITE_ALCHEMY_KEY }),
-  publicProvider(),
-]);
+const { chains, publicClient, webSocketPublicClient } = configureChains(
+  [mainnet, arbitrumGoerli],
+  [
+    infuraProvider({
+      apiKey: import.meta.env.VITE_INFURA_KEY,
+    }),
+    jsonRpcProvider({
+      rpc: (chain) =>
+        chain.id === 42170
+          ? {
+              http: `https://nova.arbitrum.io/rpc`,
+            }
+          : {
+              http: `https://${infuraName(chain.id)}.infura.io/v3/${
+                import.meta.env.VITE_INFURA_KEY
+              }`,
+            },
+    }),
+    alchemyProvider({ apiKey: import.meta.env.VITE_ALCHEMY_KEY }),
+    publicProvider(),
+  ]
+);
 
 const { connectors } = getDefaultWallets({
-  appName: "Garden",
+  appName: "Zora Crosschain Minting",
+  projectId: "41d7b077b5c30858e2c0a119727daa8b",
   chains,
 });
 
-export const client = createClient({
+const wagmiConfig = createConfig({
   autoConnect: true,
   connectors,
-  provider,
+  publicClient,
+  webSocketPublicClient,
 });
 
 const rootElement = document.getElementById("react-root");
@@ -93,13 +93,19 @@ const root = ReactDOM.createRoot(rootElement);
 
 root.render(
   <>
-    <WagmiConfig client={client}>
+    <WagmiConfig config={wagmiConfig}>
       <EssentialProvider
         config={{
           burnerApiKey: import.meta.env.VITE_BURNER_API_KEY,
           relayerUri:
             "https://api.defender.openzeppelin.com/autotasks/b50e2557-a4c9-4836-9b97-d05d25b32f0f/runs/webhook/8c55425f-87ed-485b-998c-162c3cf2b412/8WNNSvhPzYxU8JNnW3iT2o",
-          readProvider: provider,
+          readProvider: ({ chainId }) =>
+            new providers.JsonRpcProvider(
+              `https://${infuraName(chainId)}.infura.io/v3/${
+                import.meta.env.VITE_INFURA_KEY
+              }`,
+              chainId
+            ),
         }}
       >
         <RainbowKitProvider
@@ -139,13 +145,13 @@ function DevLayout() {
   }, []);
 
   const burner = useBurnerWallet();
-  const signer = useSigner();
+  const signer = useEthersSigner();
 
   // if (burner.loading || signer.isLoading || signer.isRefetching) {
   //   return null;
   // }
 
-  if (!burner.wallet && !signer.data) {
+  if (!burner.wallet && !signer) {
     return <Login />;
   }
 
@@ -162,13 +168,13 @@ function DevLayout() {
 
 function Layout() {
   const burner = useBurnerWallet();
-  const signer = useSigner();
+  const signer = useEthersSigner();
 
   // if (burner.loading || signer.isLoading || signer.isRefetching) {
   //   return null;
   // }
 
-  if (!burner.wallet && !signer.data) {
+  if (!burner.wallet && !signer) {
     return <Login />;
   }
 
