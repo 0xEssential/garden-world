@@ -10,11 +10,11 @@ import { setupNetwork } from "./mud/setupNetwork";
 import { createClientComponents } from "./mud/createClientComponents";
 import { createSystemCalls } from "./mud/createSystemCalls";
 
-import { useSigner } from "wagmi";
 import { Signer } from "ethers";
 import { Login } from "./components/Login";
 import { useBurnerWallet, useConfig } from "./hooks/useBurnerWallet";
 import { SetupResult } from "./mud/setup";
+import { useEthersSigner } from "./hooks/useEthersSigner";
 
 type NetworkSetup = Awaited<ReturnType<typeof setupNetwork>>;
 type ComponentSetup = Awaited<ReturnType<typeof createClientComponents>>;
@@ -43,7 +43,7 @@ const MUDProvider = ({
     {} as SystemCallsSetup
   );
 
-  const { data: signer, isLoading } = useSigner();
+  const signer = useEthersSigner();
   const config = useConfig();
   const { wallet, isConnected, loading } = useBurnerWallet();
 
@@ -57,14 +57,14 @@ const MUDProvider = ({
   }, [signer]);
 
   useEffect(() => {
-    if (!config.relayerUri || isLoading || (!isConnected && !signer)) return;
+    if (!config.relayerUri || !signer || (!isConnected && !signer)) return;
     console.warn("init", signer, wallet, config, isConnected);
     const init = async (c: any, s: any, wallet: any) => {
       const _network = await setupNetwork(c, s, wallet);
       setNetwork(_network);
     };
     init(config, signer as Signer, wallet);
-  }, [signer, wallet, config, isConnected, isLoading]);
+  }, [signer, wallet, config, isConnected]);
 
   useEffect(() => {
     if (!network || initialized) return;
