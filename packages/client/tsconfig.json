@@ -15,6 +15,7 @@
     "jsx": "preserve",
     "incremental": true
   },
+  "types": ["node", "vite/client"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
