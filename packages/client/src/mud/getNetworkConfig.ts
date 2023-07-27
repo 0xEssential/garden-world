@@ -2,7 +2,7 @@ import { SetupContractConfig, getBurnerWallet } from "@latticexyz/std-client";
 import worldsJson from "contracts/worlds.json";
 import { supportedChains } from "./supportedChains";
 import { MUDChain } from "@latticexyz/common/chains";
-import { arbGoerli } from "./arbGoerli";
+import { arbitrumGoerli } from "wagmi/chains";
 
 const worlds = worldsJson as Partial<
   Record<string, { address: string; blockNumber?: number }>
@@ -61,7 +61,7 @@ export async function getNetworkConfig(): Promise<NetworkConfig> {
       },
     },
     chainConfig: {
-      ...arbGoerli,
+      ...arbitrumGoerli,
     },
     privateKey: getBurnerWallet().value,
     chainId,
