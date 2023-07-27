@@ -51,7 +51,10 @@ export function createPlantSystem(layer: PhaserLayer) {
       if (value === block) {
         delete deadBlocks[key];
         const sprite = plantLayer.getByName(key);
-        sprite.tint = parseInt(THEME.accentOrange.replace("#", ""), 16);
+        (sprite as Phaser.GameObjects.Sprite).tint = parseInt(
+          THEME.accentOrange.replace("#", ""),
+          16
+        );
       }
     });
   });
@@ -93,7 +96,7 @@ export function createPlantSystem(layer: PhaserLayer) {
 
       const projectData = getComponentValueStrict(
         Projects,
-        utils.hexZeroPad(contractAddress, 20) as Entity
+        utils.hexZeroPad(contractAddress, 32) as Entity
       );
 
       const metadata = ipfsHash

@@ -36,10 +36,10 @@ export function createSystemCalls({
 
   const mintSpecies = async (
     contract: string,
-    mintPrice: BigNumber,
+    mintPrice: bigint,
     count: number
   ) => {
-    const value = mintPrice.mul(count);
+    const value = mintPrice * BigInt(count);
     const tx = await worldSend(
       "mintSpecies",
       [
@@ -50,7 +50,7 @@ export function createSystemCalls({
         },
       ],
       {
-        txMode: value.gt(0) ? "std" : "meta",
+        txMode: value > 0 ? "std" : "meta",
       }
     );
     const deployedTo = await awaitStreamValue(

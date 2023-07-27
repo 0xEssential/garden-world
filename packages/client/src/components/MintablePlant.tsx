@@ -4,9 +4,10 @@ import { useIPFSMetadata } from "../hooks/useIPFSMetadata";
 import abi from "../abis/PlantSpeciesERC721.json";
 import { formatEther } from "ethers/lib/utils.js";
 import { BigNumber } from "ethers";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export const MintablePlant = ({ project }: { project: any }) => {
+  console.warn("project", project);
   const {
     systemCalls: { mintSpecies },
   } = useMUD();
@@ -17,7 +18,7 @@ export const MintablePlant = ({ project }: { project: any }) => {
     abi,
   };
 
-  const { data: mintPrice } = useContractRead({
+  const { data: mintPrice, error } = useContractRead({
     // contracts: [
     //   {
     ...plantContract,
@@ -29,6 +30,8 @@ export const MintablePlant = ({ project }: { project: any }) => {
     //   },
     // ],
   });
+
+  console.log("error", error);
 
   const { data: owner } = useContractRead({
     ...plantContract,
@@ -67,7 +70,7 @@ export const MintablePlant = ({ project }: { project: any }) => {
               "MINTED!",
               await mintSpecies(
                 project.contractAddress,
-                mintPrice as BigNumber,
+                mintPrice as bigint,
                 count
               )
             );
@@ -75,7 +78,7 @@ export const MintablePlant = ({ project }: { project: any }) => {
         >
           Mint {count} for{" "}
           {mintPrice
-            ? `${formatEther((mintPrice as BigNumber).mul(count))} ETH`
+            ? `${formatEther((mintPrice as bigint) * BigInt(count))} ETH`
             : "Free"}
         </button>
       </div>

@@ -23,7 +23,7 @@ export function defineContractComponents(world: World) {
         },
         {
           metadata: {
-            contractId: tableId.toHex(),
+            contractId: tableId.toString(),
             tableId: tableId.toString(),
           },
         }
@@ -41,7 +41,7 @@ export function defineContractComponents(world: World) {
         },
         {
           metadata: {
-            contractId: tableId.toHex(),
+            contractId: tableId.toString(),
             tableId: tableId.toString(),
           },
         }
