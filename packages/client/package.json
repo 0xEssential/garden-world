@@ -25,7 +25,7 @@
     "@latticexyz/std-client": "2.0.0-alpha.1.203",
     "@latticexyz/utils": "2.0.0-alpha.1.203",
     "@latticexyz/world": "2.0.0-alpha.1.203",
-    "@rainbow-me/rainbowkit": "^0.8.1",
+    "@rainbow-me/rainbowkit": "^1.0.7",
     "@wagmi/chains": "^1.0.0",
     "@xessential/react": "0.0.1-beta.92",
     "@xessential/signer": "0.0.1-beta.10",
@@ -57,6 +57,7 @@
     "@vitejs/plugin-react": "^3.1.0",
     "eslint-plugin-react": "7.31.11",
     "eslint-plugin-react-hooks": "4.6.0",
+    "typescript": "^5.1.6",
     "vite": "^4.2.1",
     "vite-plugin-node-polyfills": "^0.8.2",
     "wait-port": "^1.0.4"
