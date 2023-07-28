@@ -131,7 +131,7 @@ root.render(
           />
           <Router>
             <Routes>
-              <Route path="/" element={<DevLayout />}>
+              <Route path="/" element={<Layout />}>
                 <Route path="/" index element={<Game />} />
                 <Route path="/nursery" element={<Nursery />} />
                 <Route path="/botany" element={<Botany />} />
