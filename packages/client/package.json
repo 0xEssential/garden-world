@@ -27,7 +27,7 @@
     "@latticexyz/world": "2.0.0-alpha.1.268",
     "@rainbow-me/rainbowkit": "^1.0.7",
     "@xessential/react": "0.0.1-beta.92",
-    "@xessential/signer": "0.0.1-beta.10",
+    "@xessential/signer": "0.0.1-beta.11",
     "alchemy-sdk": "^2.8.3",
     "contracts": "workspace:*",
     "crypto-browserify": "^3.12.0",

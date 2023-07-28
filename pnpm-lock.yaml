@@ -75,8 +75,8 @@ importers:
         specifier: 0.0.1-beta.92
         version: 0.0.1-beta.92(@babel/runtime@7.21.5)(@ethersproject/abi@5.7.0)(@ethersproject/bytes@5.7.0)(@ethersproject/providers@5.7.2)(@solana/web3.js@1.76.0)(@walletconnect/types@1.8.0)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6)(zod@3.21.4)
       '@xessential/signer':
-        specifier: 0.0.1-beta.10
-        version: 0.0.1-beta.10(@babel/runtime@7.21.5)(@ethersproject/abi@5.7.0)(@ethersproject/bytes@5.7.0)(@ethersproject/providers@5.7.2)(@solana/web3.js@1.76.0)(@walletconnect/types@1.8.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6)
+        specifier: 0.0.1-beta.11
+        version: 0.0.1-beta.11(@babel/runtime@7.21.5)(@ethersproject/abi@5.7.0)(@ethersproject/bytes@5.7.0)(@ethersproject/providers@5.7.2)(@solana/web3.js@1.76.0)(@walletconnect/types@1.8.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6)
       alchemy-sdk:
         specifier: ^2.8.3
         version: 2.8.3
@@ -4813,7 +4813,7 @@ packages:
       react-dom: '>=16'
     dependencies:
       '@audius/hedgehog': 2.1.0
-      '@xessential/signer': 0.0.1-beta.10(@babel/runtime@7.21.5)(@ethersproject/abi@5.7.0)(@ethersproject/bytes@5.7.0)(@ethersproject/providers@5.7.2)(@solana/web3.js@1.76.0)(@walletconnect/types@1.8.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6)
+      '@xessential/signer': 0.0.1-beta.11(@babel/runtime@7.21.5)(@ethersproject/abi@5.7.0)(@ethersproject/bytes@5.7.0)(@ethersproject/providers@5.7.2)(@solana/web3.js@1.76.0)(@walletconnect/types@1.8.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6)
       axios: 1.4.0
       ethers: 5.7.2
       fxa-common-password-list: 0.0.4
@@ -4845,8 +4845,8 @@ packages:
       - zod
     dev: false
 
-  /@xessential/signer@0.0.1-beta.10(@babel/runtime@7.21.5)(@ethersproject/abi@5.7.0)(@ethersproject/bytes@5.7.0)(@ethersproject/providers@5.7.2)(@solana/web3.js@1.76.0)(@walletconnect/types@1.8.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6):
-    resolution: {integrity: sha512-+9K53ghp6+9eJkXGADvD9YYZkx/NnA3lyxZcXZLV3qG4KbRcIEK0TMwl8Y7ee6IcJgY3bf/EeOSDREQBERORJg==}
+  /@xessential/signer@0.0.1-beta.11(@babel/runtime@7.21.5)(@ethersproject/abi@5.7.0)(@ethersproject/bytes@5.7.0)(@ethersproject/providers@5.7.2)(@solana/web3.js@1.76.0)(@walletconnect/types@1.8.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6):
+    resolution: {integrity: sha512-4ECSaiLpvdxEXH1wEF3WSWxhmS3OqzpZNqTVP+h2bmiLTp7AKz07bQHJ6pQOpN8NqmF4OrwtXchzv++b3b+WvQ==}
     dependencies:
       '@ethersproject/abstract-provider': 5.7.0
       '@gelatonetwork/gasless-onboarding': 0.0.2(@babel/runtime@7.21.5)(@ethersproject/abi@5.7.0)(@ethersproject/bytes@5.7.0)(@ethersproject/providers@5.7.2)(@solana/web3.js@1.76.0)(@walletconnect/types@1.8.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6)
